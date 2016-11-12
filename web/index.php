@@ -43,7 +43,7 @@ if (isset($accessToken)) {
 		if ($e->getCode() == 190) {
 			unset($_SESSION['facebook_access_token']);
 			$helper = $fb->getRedirectLoginHelper();
-			$loginUrl = $helper->getLoginUrl('https://apps.facebook.com/APP_NAMESPACE/', $permissions);
+			$loginUrl = $helper->getLoginUrl('https://apps.facebook.com/walkbangladesh/', $permissions);
 			echo "<script>window.top.location.href='".$loginUrl."'</script>";
 			exit;
 		}
@@ -60,7 +60,7 @@ if (isset($accessToken)) {
 		// When Graph returns an error
 		echo 'Graph returned an error: ' . $e->getMessage();
 		unset($_SESSION['facebook_access_token']);
-		echo "<script>window.top.location.href='https://apps.facebook.com/APP_NAMESPACE/'</script>";
+		echo "<script>window.top.location.href='https://apps.facebook.com/walkbangladesh/'</script>";
 		exit;
 	} catch(Facebook\Exceptions\FacebookSDKException $e) {
 		// When validation fails or other local issues
@@ -72,6 +72,8 @@ if (isset($accessToken)) {
   	// Now you can redirect to another page and use the access token from $_SESSION['facebook_access_token']
 } else {
 	$helper = $fb->getRedirectLoginHelper();
-	$loginUrl = $helper->getLoginUrl('https://apps.facebook.com/APP_NAMESPACE/', $permissions);
+	$loginUrl = $helper->getLoginUrl('https://apps.facebook.com/walkbangladesh/', $permissions);
 	echo "<script>window.top.location.href='".$loginUrl."'</script>";
 }
+
+?>
