@@ -201,9 +201,10 @@ if (isset($accessToken)) {
       });
 
 	var tagged_places_array = <?php echo json_encode($GLOBALS['tagged_places']); ?>;
+	alert(tagged_places_array[0]["place"]["location"]["city"]);
 	
-	for(var places in tagged_places_array){
-		console.log(places["place"]["location"]["city"]);
+	for(var i =0 ; i< tagged_places_array.length; i++){
+		console.log(tagged_places_array[i]["place"]["location"]["city"]);
 	}	
 
       /* marker = new MarkerWithLabel({
