@@ -10,7 +10,7 @@ $fb = new Facebook\Facebook([
 
 $helper = $fb->getCanvasHelper();
 
-$permissions = ['email']; // optionnal
+$permissions = ['email', 'user_posts']; // optionnal
 
 try {
 	if (isset($_SESSION['facebook_access_token'])) {
