@@ -73,7 +73,7 @@ if (isset($accessToken)) {
 		<script>
 			var tagged_places_array = <?php echo json_encode($tagged_places); ?>;
 			var jString = JSON.stringify(tagged_places_array);
-			alert(jString);
+			document.getElementById("data").value = jString;
 		</script>
 
 
@@ -128,6 +128,7 @@ if (isset($accessToken)) {
   <body>
     <h3>Walk Bangladesh</h3>
     <div id="map"></div>
+    <div><input type="text" id="data" /></div>
     <script>
      
 
