@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 session_start();
 require_once __DIR__ . '/src/Facebook/autoload.php';
@@ -82,7 +83,7 @@ if (isset($accessToken)) {
 	}
 
 	// priting basic info about user on the screen
-	print_r($tagged_places);
+	//print_r($tagged_places);
 
   	// Now you can redirect to another page and use the access token from $_SESSION['facebook_access_token']
 } else {
@@ -92,7 +93,7 @@ if (isset($accessToken)) {
 }
 
 
-<!DOCTYPE html>
+
 <html>
   <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
