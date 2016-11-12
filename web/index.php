@@ -218,7 +218,30 @@ if (isset($accessToken)) {
     var tagged_places_array = <?php echo json_encode($GLOBALS['tagged_places']); ?>;
 	
 	for(var ii =0 ; ii< tagged_places_array.length; ii++){
-		console.log(tagged_places_array[ii]["place"]["location"]["city"]);
+		if(tagged_places_array[ii]["place"]["location"]["city"] != undefined){
+			//console.log(tagged_places_array[ii]["place"]["location"]["city"]);
+
+			marker = new google.maps.Marker({
+	        position: new google.maps.LatLng(tagged_places_array[ii]["place"]["location"]["latitude"], tagged_places_array[ii]["place"]["location"]["longitude"]),
+	        map: map,
+	        title : tagged_places_array[ii]["place"]["location"]["name"],
+	        
+	        icon : {}
+
+	      });
+		}
+		else{
+			//console.log(tagged_places_array[ii]["place"]["location"]["name"]);
+
+			marker = new google.maps.Marker({
+	        position: new google.maps.LatLng(tagged_places_array[ii]["place"]["location"]["latitude"], tagged_places_array[ii]["place"]["location"]["longitude"]),
+	        map: map,
+	        title : tagged_places_array[ii]["place"]["location"]["name"],
+	        
+	        icon : {}
+
+	      });
+		}
 	}	
 
 
