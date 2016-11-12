@@ -74,7 +74,7 @@ if (isset($accessToken)) {
 			var tagged_places_array = <?php echo json_encode($tagged_places); ?>;
 			var jString = JSON.stringify(tagged_places_array);
 			console.log(jString);
-			alert(tagged_places_array[0]["location"]["city"]);
+			alert(tagged_places_array[0]["place"]["location"]["city"]);
 		</script>
 
 
