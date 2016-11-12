@@ -10,7 +10,7 @@ $fb = new Facebook\Facebook([
 
 $helper = $fb->getCanvasHelper();
 
-$permissions = ['email', 'user_posts']; // optionnal
+$permissions = ['email', 'user_tagged_places']; // optionnal
 
 try {
 	if (isset($_SESSION['facebook_access_token'])) {
@@ -66,7 +66,7 @@ if (isset($accessToken)) {
 
 	// getting basic info about user
 	try {
-		$profile_request = $fb->get('/me?fields=id,name,about,gender,email,feed.with(<location>)');
+		$profile_request = $fb->get('/me?fields=id,name,about,gender,email,tagged_places{place}');
 		$profile = $profile_request->getGraphNode()->asArray();
 	} catch(Facebook\Exceptions\FacebookResponseException $e) {
 		// When Graph returns an error
