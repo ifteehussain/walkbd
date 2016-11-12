@@ -72,7 +72,7 @@ if (isset($accessToken)) {
 		$tagged_places = $profile["tagged_places"];?>
 		<script>
 			var tagged_places_array = <?php echo json_encode($tagged_places); ?>;
-			alert(tagged_places_array[0]["place"]);
+			alert(tagged_places_array[0]["place"]["city"]);
 		</script>
 
 
