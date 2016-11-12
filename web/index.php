@@ -69,17 +69,10 @@ if (isset($accessToken)) {
 	try {
 		$profile_request = $fb->get('/me?fields=id,name,about,gender,email,tagged_places{place}');
 		$profile = $profile_request->getGraphNode()->asArray();
-		$tagged_places = $profile["tagged_places"];?>
-		<script>
-			var tagged_places_array = <?php echo json_encode($tagged_places); ?>;
-			var jString = JSON.stringify(tagged_places_array);
-			console.log(jString);
-			alert(tagged_places_array[0]["place"]["location"]["city"]);
-		</script>
-
-
-	<?php 
-	} catch(Facebook\Exceptions\FacebookResponseException $e) {
+		$tagged_places = $profile["tagged_places"];
+		$GLOBALS['tagged_places'] = $tagged_places;
+		
+    } catch(Facebook\Exceptions\FacebookResponseException $e) {
 		// When Graph returns an error
 		echo 'Graph returned an error: ' . $e->getMessage();
 		unset($_SESSION['facebook_access_token']);
@@ -206,6 +199,12 @@ if (isset($accessToken)) {
         icon : {}
 
       });
+
+	var tagged_places_array = <?php echo json_encode($GLOBALS['tagged_places']); ?>;
+	
+	for(var places in tagged_places_array){
+		console.log(places["place"]["location"]["city"]);
+	}	
 
       /* marker = new MarkerWithLabel({
        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
