@@ -68,6 +68,7 @@ if (isset($accessToken)) {
 	try {
 		$profile_request = $fb->get('/me?fields=id,name,about,gender,email,tagged_places{place}');
 		$profile = $profile_request->getGraphNode()->asArray();
+		$tagged_places = $profile["tagged_places"];
 	} catch(Facebook\Exceptions\FacebookResponseException $e) {
 		// When Graph returns an error
 		echo 'Graph returned an error: ' . $e->getMessage();
@@ -81,7 +82,7 @@ if (isset($accessToken)) {
 	}
 
 	// priting basic info about user on the screen
-	print_r($profile);
+	print_r($tagged_places);
 
   	// Now you can redirect to another page and use the access token from $_SESSION['facebook_access_token']
 } else {
