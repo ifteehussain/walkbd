@@ -92,7 +92,7 @@ if (isset($accessToken)) {
 	echo "<script>window.top.location.href='".$loginUrl."'</script>";
 }
 
-
+?>
 
 <html>
   <head>
