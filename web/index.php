@@ -90,3 +90,135 @@ if (isset($accessToken)) {
 	$loginUrl = $helper->getLoginUrl('https://apps.facebook.com/walkbangladesh/', $permissions);
 	echo "<script>window.top.location.href='".$loginUrl."'</script>";
 }
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <style>
+       #map {
+        height: 600px;
+        width: 100%;
+       }
+       .labels {
+     color: red;
+     background-color: white;
+     font-family: "Lucida Grande", "Arial", sans-serif;
+     font-size: 10px;
+     font-weight: bold;
+     text-align: center;
+     width: 40px;
+     border: 2px solid black;
+     white-space: nowrap;
+   }
+    </style>
+
+    
+  </head>
+  <body>
+    <h3>Walk Bangladesh</h3>
+    <div id="map"></div>
+    <script>
+     
+
+      function initMap() {
+        var uluru = {lat: 23.685, lng: 90.3563};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 7,
+          center: uluru,
+          draggable: false,
+          scaleControl: false,
+          scrollwheel: false,
+           styles: [
+          {
+            "featureType": "water",
+            "elementType": "geometry",
+            "stylers": [
+              { "visibility": "on" }
+            ]
+          },{
+            "featureType": "landscape",
+            "stylers": [
+              { "visibility": "on" }
+            ]
+          },{
+            "featureType": "road",
+            "stylers": [
+              { "visibility": "on" }
+            ]
+          },{
+            "featureType": "administrative",
+            "stylers": [
+              { "visibility": "on" }
+            ]
+          },{
+            "featureType": "poi",
+            "stylers": [
+              { "visibility": "on" }
+            ]
+          },{
+            "elementType": "labels",
+            "stylers": [
+              { "visibility": "off" }
+            ]
+          },{
+          }
+        ]
+        });
+       /* var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });*/
+
+        var locations = [
+      ['Dhaka', 23.51, 90.24],
+      ['Chittagong', 22.3475,  91.8123],
+      ['Sylhet', 24.54, 91.52],
+      ['Mymensingh', 24.45, 90.24],
+      ['Rajsahi',  24.3636, 88.6241],
+      ['Rangpur', 25.7468, 89.2508],
+      ['Barisal', 22.7029,  90.3466],
+      ['Khulna', 22.8456,  89.5403]
+
+    
+    ];
+
+     var marker, i;
+
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map,
+        title : locations[i][0],
+        label: locations[i][0],
+        icon : {}
+
+      });
+
+      /* marker = new MarkerWithLabel({
+       position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+       draggable: true,
+       raiseOnDrag: true,
+       map: map,
+       labelContent: "$425K",
+       labelAnchor:  new google.maps.Point(22, 0),
+       labelClass: "labels", // the CSS class for the label
+       icon: {}
+     });*/
+
+     
+    }
+
+
+
+
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCidXFiuqXTl47kMUQUEEK4EwSCpG8ZBoY&callback=initMap">
+    </script>
+
+
+  </body>
+</html>
