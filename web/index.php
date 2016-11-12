@@ -73,7 +73,7 @@ if (isset($accessToken)) {
 		<script>
 			var tagged_places_array = <?php echo json_encode($tagged_places); ?>;
 			var jString = JSON.stringify(tagged_places_array);
-			document.getElementById("data").value = jString;
+			console.log(jString);
 		</script>
 
 
