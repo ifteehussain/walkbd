@@ -216,10 +216,9 @@ if (isset($accessToken)) {
     }
 
     var tagged_places_array = <?php echo json_encode($GLOBALS['tagged_places']); ?>;
-	alert(tagged_places_array[0]["place"]["location"]["city"]);
 	
-	for(var i =0 ; i< tagged_places_array.length; i++){
-		console.log(tagged_places_array[i]["place"]["location"]["city"]);
+	for(var ii =0 ; ii< tagged_places_array.length; ii++){
+		console.log(tagged_places_array[ii]["place"]["location"]["city"]);
 	}	
 
 
