@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2016 Facebook, Inc.
+ * Copyright 2014 Facebook, Inc.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -21,13 +21,25 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
-namespace Facebook\Exceptions;
+namespace Facebook\PseudoRandomString;
 
 /**
- * Class FacebookResumableUploadException
+ * Interface
  *
  * @package Facebook
  */
-class FacebookResumableUploadException extends FacebookSDKException
+interface PseudoRandomStringGeneratorInterface
 {
+    /**
+     * Get a cryptographically secure pseudo-random string of arbitrary length.
+     *
+     * @see http://sockpuppet.org/blog/2014/02/25/safely-generate-random-numbers/
+     *
+     * @param int $length The length of the string to return.
+     *
+     * @return string
+     *
+     * @throws \Facebook\Exceptions\FacebookSDKException|\InvalidArgumentException
+     */
+    public function getPseudoRandomString($length);
 }

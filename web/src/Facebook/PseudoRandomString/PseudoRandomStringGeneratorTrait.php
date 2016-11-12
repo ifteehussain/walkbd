@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2016 Facebook, Inc.
+ * Copyright 2014 Facebook, Inc.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -21,65 +21,38 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
-namespace Facebook\GraphNodes;
+namespace Facebook\PseudoRandomString;
 
-use DateTime;
-
-/**
- * Birthday object to handle various Graph return formats
- *
- * @package Facebook
- */
-class Birthday extends DateTime
+trait PseudoRandomStringGeneratorTrait
 {
     /**
-     * @var bool
-     */
-    private $hasDate = false;
-
-    /**
-     * @var bool
-     */
-    private $hasYear = false;
-
-    /**
-     * Parses Graph birthday format to set indication flags, possible values:
+     * Validates the length argument of a random string.
      *
-     *  MM/DD/YYYY
-     *  MM/DD
-     *  YYYY
+     * @param int $length The length to validate.
      *
-     * @link https://developers.facebook.com/docs/graph-api/reference/user
-     *
-     * @param string $date
+     * @throws \InvalidArgumentException
      */
-    public function __construct($date)
+    public function validateLength($length)
     {
-        $parts = explode('/', $date);
+        if (!is_int($length)) {
+            throw new \InvalidArgumentException('getPseudoRandomString() expects an integer for the string length');
+        }
 
-        $this->hasYear = count($parts) === 3 || count($parts) === 1;
-        $this->hasDate = count($parts) === 3 || count($parts) === 2;
-
-        parent::__construct($date);
+        if ($length < 1) {
+            throw new \InvalidArgumentException('getPseudoRandomString() expects a length greater than 1');
+        }
     }
 
     /**
-     * Returns whether date object contains birth day and month
+     * Converts binary data to hexadecimal of arbitrary length.
      *
-     * @return bool
-     */
-    public function hasDate()
-    {
-        return $this->hasDate;
-    }
-
-    /**
-     * Returns whether date object contains birth year
+     * @param string $binaryData The binary data to convert to hex.
+     * @param int    $length     The length of the string to return.
      *
-     * @return bool
+     * @return string
      */
-    public function hasYear()
+    public function binToHex($binaryData, $length)
     {
-        return $this->hasYear;
+        return mb_substr(bin2hex($binaryData), 0, $length);
     }
 }

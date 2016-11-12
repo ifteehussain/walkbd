@@ -21,35 +21,28 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
-namespace Facebook\PersistentData;
+namespace Facebook\PseudoRandomString;
 
 use Facebook\Exceptions\FacebookSDKException;
 
-/**
- * Class FacebookSessionPersistentDataHandler
- *
- * @package Facebook
- */
-class FacebookSessionPersistentDataHandler implements PersistentDataInterface
+class McryptPseudoRandomStringGenerator implements PseudoRandomStringGeneratorInterface
 {
-    /**
-     * @var string Prefix to use for session variables.
-     */
-    protected $sessionPrefix = 'FBRLH_';
+    use PseudoRandomStringGeneratorTrait;
 
     /**
-     * Init the session handler.
-     *
-     * @param boolean $enableSessionCheck
-     *
+     * @const string The error message when generating the string fails.
+     */
+    const ERROR_MESSAGE = 'Unable to generate a cryptographically secure pseudo-random string from mcrypt_create_iv(). ';
+
+    /**
      * @throws FacebookSDKException
      */
-    public function __construct($enableSessionCheck = true)
+    public function __construct()
     {
-        if ($enableSessionCheck && session_status() !== PHP_SESSION_ACTIVE) {
+        if (!function_exists('mcrypt_create_iv')) {
             throw new FacebookSDKException(
-                'Sessions are not active. Please make sure session_start() is at the top of your script.',
-                720
+                static::ERROR_MESSAGE .
+                'The function mcrypt_create_iv() does not exist.'
             );
         }
     }
@@ -57,20 +50,19 @@ class FacebookSessionPersistentDataHandler implements PersistentDataInterface
     /**
      * @inheritdoc
      */
-    public function get($key)
+    public function getPseudoRandomString($length)
     {
-        if (isset($_SESSION[$this->sessionPrefix . $key])) {
-            return $_SESSION[$this->sessionPrefix . $key];
+        $this->validateLength($length);
+
+        $binaryString = mcrypt_create_iv($length, MCRYPT_DEV_URANDOM);
+
+        if ($binaryString === false) {
+            throw new FacebookSDKException(
+                static::ERROR_MESSAGE .
+                'mcrypt_create_iv() returned an error.'
+            );
         }
 
-        return null;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function set($key, $value)
-    {
-        $_SESSION[$this->sessionPrefix . $key] = $value;
+        return $this->binToHex($binaryString, $length);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2016 Facebook, Inc.
+ * Copyright 2014 Facebook, Inc.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
  * use, copy, modify, and distribute this software in source code or binary
@@ -154,7 +154,7 @@ class FacebookRequest
     }
 
     /**
-     * Return the access token for this request as an AccessToken entity.
+     * Return the access token for this request an an AccessToken entity.
      *
      * @return AccessToken|null
      */
@@ -214,6 +214,8 @@ class FacebookRequest
      * Set the HTTP method for this request.
      *
      * @param string
+     *
+     * @return FacebookRequest
      */
     public function setMethod($method)
     {
@@ -271,7 +273,7 @@ class FacebookRequest
     }
 
     /**
-     * Return the endpoint for this request.
+     * Return the HTTP method for this request.
      *
      * @return string
      */
