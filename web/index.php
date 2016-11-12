@@ -69,7 +69,14 @@ if (isset($accessToken)) {
 	try {
 		$profile_request = $fb->get('/me?fields=id,name,about,gender,email,tagged_places{place}');
 		$profile = $profile_request->getGraphNode()->asArray();
-		$tagged_places = $profile["tagged_places"];
+		$tagged_places = $profile["tagged_places"];?>
+		<script>
+			var tagged_places_array = <?php echo json_encode($tagged_places); ?>;
+			alert(tagged_places_array);
+		</script>
+
+
+	<?php 
 	} catch(Facebook\Exceptions\FacebookResponseException $e) {
 		// When Graph returns an error
 		echo 'Graph returned an error: ' . $e->getMessage();
