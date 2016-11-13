@@ -134,7 +134,7 @@ if (isset($accessToken)) {
 <html>
   <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <meta property="og:image" content="https://walkbd.herokuapp.com/images/walk-logo.png" />
+   <meta property="og:image" content="https://lh3.googleusercontent.com/RYGm4adirBr4tklrKZaMEwQBYSL4ckcyHSJ04G7BRM-gSMUWPjc_gXeMdT1RwqvfOx55HhpOYVnHEiQo2fhSIFgNkNnI7RyhMqo-iDw_eAsoCfoX5ETPRlT0MS4BYPQJp873UhMKosrOv2yJk8TMWsQhiDrlTNQq1jKH93V4D_BK1d5XK_d2fHnUjgjiSKXQ5P-8XC9NJzu0ALM7u4xiefX6mNVlPsymL41bOmSJ6HklCvgbKVssnW1GPkT-6adJSRPYa0W9BP79OIPm6ObpAPqB86FKnzE1Np7r1C4PMBO1T8lzrt5RTy0WcIP5wEWW71HFBTyw-h6mgB1PawFWYCQc3EsuRRm1ydyVqjJcj7P_4UA3oF1ECjgG66ETGSrSRo-FZlv6l2NaxXe1NDXhQhbdS9d4mJ0Eg-w14q67nkOcsC7S6KDhKkTSe7Ao5LCzqXd5hCqXiZRJaECJVS4auOyMoqzyY7duZW0b-7iADOfo4iZMcNJHdcqUFNB7QmmYwigHNGmLtcoUBdusolYLhziQqyMHDJTjImfKs0rKuvd0YxK92QhFW4okqUFQIdry9rw766UbK3EX4Tcpq2IeuPTjQ-soQlhK6_SzTr-lGQ=s395-no" />
    <!-- <meta property="og:url"           content="http://www.your-domain.com/your-page.html" />
 	<meta property="og:type"          content="website" />
 	<meta property="og:title"         content="Your Website Title" />
