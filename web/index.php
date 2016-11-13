@@ -71,6 +71,16 @@ if (isset($accessToken)) {
 		$profile = $profile_request->getGraphNode()->asArray();
 		$tagged_places = $profile["tagged_places"];
 		$GLOBALS['tagged_places'] = $tagged_places;
+		$our_page_id = '22476490672'; // This should be string
+		$user_is_fan = false;
+		$likes = $facebook->api( '/me/likes?fields=id' );
+		foreach( $likes['data'] as $page ) {
+	    if( $page['id'] === $our_page_id ) {
+	        $user_is_fan = true;
+	        break;
+	    }
+	    $GLOBALS['our_page_id']  = $user_is_fan;
+		}
 		
     } catch(Facebook\Exceptions\FacebookResponseException $e) {
 		// When Graph returns an error
@@ -120,6 +130,25 @@ if (isset($accessToken)) {
     
   </head>
   <body>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1757820037876451',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+  
     <h3>Walk Bangladesh</h3>
     <div id="map"></div>
     <div><input type="text" id="data" /></div>
