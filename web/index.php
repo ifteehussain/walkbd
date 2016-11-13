@@ -71,16 +71,7 @@ if (isset($accessToken)) {
 		$profile = $profile_request->getGraphNode()->asArray();
 		$tagged_places = $profile["tagged_places"];
 		$GLOBALS['tagged_places'] = $tagged_places;
-		$our_page_id = '22476490672'; // This should be string
-		$user_is_fan = false;
-		$likes = $facebook->api( '/me/likes?fields=id' );
-		foreach( $likes['data'] as $page ) {
-	    if( $page['id'] === $our_page_id ) {
-	        $user_is_fan = true;
-	        break;
-	    }
-	    $GLOBALS['our_page_id']  = $user_is_fan;
-}
+		
 		
     } catch(Facebook\Exceptions\FacebookResponseException $e) {
 		// When Graph returns an error
