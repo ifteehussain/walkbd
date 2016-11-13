@@ -80,7 +80,7 @@ if (isset($accessToken)) {
 	        break;
 	    }
 	    $GLOBALS['our_page_id']  = $user_is_fan;
-		}
+}
 		
     } catch(Facebook\Exceptions\FacebookResponseException $e) {
 		// When Graph returns an error
