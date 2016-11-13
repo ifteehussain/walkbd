@@ -134,6 +134,7 @@ if (isset($accessToken)) {
 <html>
   <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <meta property="og:image" content="https://walkbd.herokuapp.com/images/walk-logo.png" />
    <!-- <meta property="og:url"           content="http://www.your-domain.com/your-page.html" />
 	<meta property="og:type"          content="website" />
 	<meta property="og:title"         content="Your Website Title" />
