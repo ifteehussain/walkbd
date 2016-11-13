@@ -178,8 +178,6 @@ $('#fanback').stop().fadeOut('medium');
 }(document, 'script', 'facebook-jssdk'));</script>
     <h3>Walk Bangladesh</h3>
     <div id="map"></div>
-    <div><input type="text" id="data" /></div>
-
     <script>
      
 
