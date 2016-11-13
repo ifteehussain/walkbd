@@ -263,6 +263,14 @@ $('#fanback').stop().fadeOut('medium');
     
   </head>
   <body>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1757820037876451";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <h3>Walk Bangladesh</h3>
     <div id="map"></div>
     <div><input type="text" id="data" /></div>
@@ -398,7 +406,10 @@ $('#fanback').stop().fadeOut('medium');
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCidXFiuqXTl47kMUQUEEK4EwSCpG8ZBoY&callback=initMap">
     </script>
 
-    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=51&layout=button&action=like&size=small&show_faces=true&share=false&height=65&appId=1757820037876451" width="51" height="65" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+    <iframe allowtransparency='true' frameborder='0' scrolling='no' src='//www.facebook.com/plugins/likebox.php? href=https://www.facebook.com/ShkarkoMuzikShqip&width=402&height=255&colorscheme=light&show_faces=true&show_border=false&stream=false&header=false' style='border: none; overflow: hidden; margin-top: -19px; width: 402px; height: 230px;'></iframe>
+
+    
+    <div class="fb-like" data-href="https://www.facebook.com/Mangosqd/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
 
 
   </body>
