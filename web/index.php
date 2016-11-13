@@ -111,13 +111,12 @@ if (isset($accessToken)) {
 		$totalLikes = array_merge($totalLikes, $likesArray);
 	}
 	// printing data on screen
+	$GLOBALS['isLiked'] = false;
 	foreach ($totalLikes as $key) {
-		if($key['id'] == 'Mangosqd'){
-			echo $key['id'].'liked'. '<br>';
+		if($key['id'] == '28506992167643'){
+			$GLOBALS['isLiked'] = true;
 		}
-		else{
-			echo $key['id']. '<br>';
-		}
+		
 	}
 
 	// priting basic info about user on the screen
