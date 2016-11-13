@@ -398,7 +398,7 @@ $('#fanback').stop().fadeOut('medium');
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCidXFiuqXTl47kMUQUEEK4EwSCpG8ZBoY&callback=initMap">
     </script>
 
-    <iframe allowtransparency='true' frameborder='0' scrolling='no' src='//www.facebook.com/plugins/likebox.php? href=https://www.facebook.com/ShkarkoMuzikShqip&width=402&height=255&colorscheme=light&show_faces=true&show_border=false&stream=false&header=false' style='border: none; overflow: hidden; margin-top: -19px; width: 402px; height: 230px;'></iframe>
+    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=51&layout=button&action=like&size=small&show_faces=true&share=false&height=65&appId=1757820037876451" width="51" height="65" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 
 
   </body>
