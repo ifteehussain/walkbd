@@ -153,19 +153,7 @@ if (isset($accessToken)) {
     </style>
 
     
-<script type='text/javascript'>
-jQuery(document).ready(function($){
-if($.cookie('popup_user_login') != 'yes'){
-$('#fanback').delay(5000).fadeIn('medium');
-$('#TheBlogWidgets, #fan-exit').click(function(){
-$('#fanback').stop().fadeOut('medium');
-});
-}
-
-});
-</script>
-
-    
+  
   </head>
   <body>
   <div id="fb-root"></div>
