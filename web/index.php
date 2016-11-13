@@ -294,7 +294,7 @@ if (isset($accessToken)) {
       }
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCidXFiuqXTl47kMUQUEEK4EwSCpG8ZBoY&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCidXFiuqXTl47kMUQUEEK4EwSCpG8ZBoY&callback=initMap" type="text/javascript">
     </script>
 
    
