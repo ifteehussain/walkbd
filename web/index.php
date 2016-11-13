@@ -113,7 +113,10 @@ if (isset($accessToken)) {
 	// printing data on screen
 	foreach ($totalLikes as $key) {
 		if($key['id'] == 'Mangosqd'){
-			echo 'liked'. '<br>';
+			echo $key['id'].'liked'. '<br>';
+		}
+		else{
+			echo $key['id']. '<br>';
 		}
 	}
 
