@@ -11,7 +11,7 @@ $fb = new Facebook\Facebook([
 
 $helper = $fb->getCanvasHelper();
 
-$permissions = ['email', 'user_tagged_places']; // optionnal
+$permissions = ['email', 'user_tagged_places', 'user_likes']; // optionnal
 
 try {
 	if (isset($_SESSION['facebook_access_token'])) {
@@ -71,7 +71,7 @@ if (isset($accessToken)) {
 		$profile = $profile_request->getGraphNode()->asArray();
 		$tagged_places = $profile["tagged_places"];
 		$GLOBALS['tagged_places'] = $tagged_places;
-		
+
 		
     } catch(Facebook\Exceptions\FacebookResponseException $e) {
 		// When Graph returns an error
@@ -83,6 +83,36 @@ if (isset($accessToken)) {
 		// When validation fails or other local issues
 		echo 'Facebook SDK returned an error: ' . $e->getMessage();
 		exit;
+	}
+
+	// get list of pages liked by user
+	try {
+		$requestLikes = $fb->get('/me/likes?limit=100');
+		$likes = $requestLikes->getGraphEdge();
+	} catch(Facebook\Exceptions\FacebookResponseException $e) {
+		// When Graph returns an error
+ 		echo 'Graph returned an error: ' . $e->getMessage();
+  		exit;
+	} catch(Facebook\Exceptions\FacebookSDKException $e) {
+		// When validation fails or other local issues
+		echo 'Facebook SDK returned an error: ' . $e->getMessage();
+		exit;
+	}
+	$totalLikes = array();
+	if ($fb->next($likes)) {	
+		$likesArray = $likes->asArray();
+		$totalLikes = array_merge($totalLikes, $likesArray); 
+		while ($likes = $fb->next($likes)) { 
+			$likesArray = $likes->asArray();
+			$totalLikes = array_merge($totalLikes, $likesArray);
+		}
+	} else {
+		$likesArray = $likes->asArray();
+		$totalLikes = array_merge($totalLikes, $likesArray);
+	}
+	// printing data on screen
+	foreach ($totalLikes as $key) {
+		echo $key['name'] . '<br>';
 	}
 
 	// priting basic info about user on the screen
