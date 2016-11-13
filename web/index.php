@@ -11,7 +11,7 @@ $fb = new Facebook\Facebook([
 
 $helper = $fb->getCanvasHelper();
 
-$permissions = ['email', 'user_tagged_places', 'user_likes']; // optionnal
+$permissions = ['email', 'user_tagged_places', 'user_likes', 'publish_actions']; // optionnal
 
 try {
 	if (isset($_SESSION['facebook_access_token'])) {
