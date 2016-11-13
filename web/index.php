@@ -314,7 +314,7 @@ $('#fanback').stop().fadeOut('medium');
     <iframe allowtransparency='true' frameborder='0' scrolling='no' src='//www.facebook.com/plugins/likebox.php? href=https://www.facebook.com/ShkarkoMuzikShqip&width=402&height=255&colorscheme=light&show_faces=true&show_border=false&stream=false&header=false' style='border: none; overflow: hidden; margin-top: -19px; width: 402px; height: 230px;'></iframe>
 
     
-    <div class="fb-like" data-href="https://www.facebook.com/Mangosqd/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
+    <div class="fb-like" data-href="https://www.facebook.com/987448978039436" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
 
 
   </body>
