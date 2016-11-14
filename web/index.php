@@ -139,6 +139,8 @@ if (isset($accessToken)) {
 	<meta property="og:type"          content="website" />
 	<meta property="og:title"         content="Walk Bangladesh" />
 	<meta property="og:description"   content="Walk Bangladesh" />
+	<meta property="og:image:width" content="450"/>
+	<meta property="og:image:height" content="298"/>
 	
     <style>
        #map {
